@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 // Components
 import Product from "./Product";
+import { useContext } from "react";
+import { ProductContext } from "../contexts/ProductContext";
+// const { products, addItem } = useContext(ProductContext);
 
 const ScProducts = styled.section`
   display: grid;
