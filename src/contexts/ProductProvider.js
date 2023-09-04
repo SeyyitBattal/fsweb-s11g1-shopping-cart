@@ -1,17 +1,24 @@
 import { createContext, useState } from "react";
 import { data } from "../data";
-import addItem from "../App";
 
-export const myProContext = createContext();
+export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState(data);
-  const [cart, setCart] = useState([]);
+  const [card, setCard] = useState([]);
+
+  const addProductToCard = (item) => {
+    // verilen itemi sepete ekleyin
+    setCard([...card, item]);
+    console.log("Sepete eklenen ürün: ", item);
+  };
 
   return (
-    <myProContext.Provider value={{ products, addItem }}>
+    <ProductContext.Provider
+      value={{ products, addProductToCard, setProducts, card, setCard }}
+    >
       {children}
-    </myProContext.Provider>
+    </ProductContext.Provider>
   );
 };
 
