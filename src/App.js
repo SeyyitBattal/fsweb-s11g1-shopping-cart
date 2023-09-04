@@ -22,7 +22,6 @@ function App() {
   return (
     <div className="App">
       <Navigation cart={cart} />
-
       {/* Routelar */}
       <main className="content">
         <Route exact path="/">

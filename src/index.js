@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ProductContext } from "./contexts/ProductContext";
 import ProductProvider from "./contexts/ProductProvider";
 
 import "./index.css";
