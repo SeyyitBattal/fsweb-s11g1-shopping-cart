@@ -5,17 +5,29 @@ export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState(data);
-  const [card, setCard] = useState([]);
+  const [cart, setCart] = useState([]);
 
-  const addProductToCard = (item) => {
+  const removeCart = (id) => {
+    const filtered = cart.filter((c) => c.id !== id);
+    setCart(filtered);
+  };
+
+  const addProductToCart = (item) => {
     // verilen itemi sepete ekleyin
-    setCard([...card, item]);
+    setCart([...cart, item]);
     console.log("Sepete eklenen ürün: ", item);
   };
 
   return (
     <ProductContext.Provider
-      value={{ products, addProductToCard, setProducts, card, setCard }}
+      value={{
+        products,
+        addProductToCart,
+        setProducts,
+        cart,
+        setCart,
+        removeCart,
+      }}
     >
       {children}
     </ProductContext.Provider>

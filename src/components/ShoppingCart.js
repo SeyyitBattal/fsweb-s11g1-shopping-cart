@@ -6,9 +6,9 @@ import Item from "./ShoppingCartItem";
 import { ProductContext } from "../contexts/ProductProvider";
 
 const ShoppingCart = (props) => {
-  const { card } = useContext(ProductContext);
+  const { cart } = useContext(ProductContext);
   const getCartTotal = () => {
-    return card
+    return cart
       .reduce((acc, value) => {
         return acc + value.price;
       }, 0)
@@ -17,7 +17,7 @@ const ShoppingCart = (props) => {
 
   return (
     <div>
-      {card.map((item) => (
+      {cart.map((item) => (
         <Item key={item.id} {...item} />
       ))}
 
